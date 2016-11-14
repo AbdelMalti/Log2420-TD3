@@ -19,7 +19,8 @@ body{
 }
 
 #googleMap{
-	
+	height: 500px;
+	width: 500px;
 }
 
 .cacher(){

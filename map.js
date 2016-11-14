@@ -3,27 +3,25 @@ var ville;
 
 $(document).ready(function(){
 
+	$.getJSON("villes.json", function(obj) {
+		ville = obj;
+	});
 
-$.getJSON("villes.json", function(obj) {
-    ville = obj;
-});
-/****/
-//initMap();
-/****/
+	initMap();
 
-  cacherPartieAnglaise();
+	cacherPartieAnglaise();
 
-$( "#boutonFrancais" ).click(cacherPartieAnglaise);
+	$( "#boutonFrancais" ).click(cacherPartieAnglaise);
 
-$( "#boutonAnglais" ).click(cacherPartieFrancaise);
+	$( "#boutonAnglais" ).click(cacherPartieFrancaise);
 
-$( "#frenchButton" ).click(cacherPartieAnglaise);
+	$( "#frenchButton" ).click(cacherPartieAnglaise);
 
-$( "#englishButton" ).click(cacherPartieFrancaise);
+	$( "#englishButton" ).click(cacherPartieFrancaise);
 
-$( "#inputNomVille" ).autocomplete({
-      source: ville
-    });
+	$( "#inputNomVille" ).autocomplete({
+		  source: ville
+		});
 });
 
 
@@ -44,7 +42,7 @@ function cacherPartieFrancaise(){
 
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('googleMap'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 8
   });
