@@ -1,10 +1,14 @@
 var map;
-var ville;
+var tabVille = [];
+var tabNomVilles = [];
 
 $(document).ready(function(){
-
-	$.getJSON("villes.json", function(obj) {
-		ville = obj;
+	$.getJSON("villes.json", function(data) {
+		tabVille = data;//[];
+    $.map(data,function(villes,nom){
+      tabNomVilles.push(nom);
+    })
+    console.log(tabNomVilles);
 	});
 
 	initMap();
@@ -20,7 +24,7 @@ $(document).ready(function(){
 	$( "#englishButton" ).click(cacherPartieFrancaise);
 
 	$( "#inputNomVille" ).autocomplete({
-		  source: ville
+		  source: tabNomVilles
 		});
 });
 
@@ -43,7 +47,7 @@ function cacherPartieFrancaise(){
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('googleMap'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {lat: 45.5, lng: -73.550003},
     zoom: 8
   });
 }
