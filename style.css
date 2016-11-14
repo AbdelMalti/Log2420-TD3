@@ -7,5 +7,21 @@ body{
 }
 
 #inputNomVille{
+
+}
+
+#français{
+
+}
+
+#english{
+	display: hide;
+}
+
+#googleMap{
 	
+}
+
+.cacher(){
+	color: red;
 }
