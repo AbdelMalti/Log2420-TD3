@@ -4,7 +4,6 @@ var tabNomVilles = [];
 
 var longitude;
 var lagitude;
-var position;
 
 var marker;
 
@@ -55,9 +54,8 @@ function initMap() {
     zoom: 8
   });
 
-position = {lat: 45.5, lng: -73.550003};
   marker = new google.maps.Marker({
-    position: position,
+    position: {lat: 45.5, lng: -73.550003},
     map: map,
     title: 'Hello World!'
   });
@@ -90,7 +88,4 @@ function settingLatLong(){
       }
     })
   });
-
-   /* console.log(longitude);
-    console.log(lagitude);*/
 }
