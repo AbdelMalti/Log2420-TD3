@@ -2,14 +2,12 @@ var map;
 var tabVille = [];
 var tabNomVilles = [];
 
+var longitude;
+var lagitude;
+
 $(document).ready(function(){
-	$.getJSON("villes.json", function(data) {
-		tabVille = data;//[];
-    $.map(data,function(villes,nom){
-      tabNomVilles.push(nom);
-    })
-    console.log(tabNomVilles);
-	});
+
+  lookingIntoJSON();
 
 	initMap();
 
@@ -26,6 +24,10 @@ $(document).ready(function(){
 	$( "#inputNomVille" ).autocomplete({
 		  source: tabNomVilles
 		});
+
+  $("#inputNomVille").on('change keyup paste', function() {
+    settingLatLong();
+  });
 });
 
 
@@ -33,7 +35,6 @@ function cacherPartieAnglaise(){
         $("#english").hide();
         $( "#français" ).show();
         $("#boutonFrancais").attr("disabled", true);
-        //$( "#français" ).toggleClass( "cacher" ); //permet d'alterner si un hide est la il l'enleve
     }
 
 
@@ -50,4 +51,35 @@ function initMap() {
     center: {lat: 45.5, lng: -73.550003},
     zoom: 8
   });
+}
+
+function lookingIntoJSON(){
+  $.getJSON("villes.json", function(data) {
+    tabVille = data;
+    $.map(data,function(villes, nom){
+      tabNomVilles.push(nom);
+    })
+  });
+  settingLatLong();
+}
+
+function settingLatLong(){
+
+      console.log("input : " +$( "#inputNomVille" ).val());
+
+    $.getJSON("villes.json", function(data) {
+    $.map(data,function(villes, nom){
+      if($( "#inputNomVille" ).val() == nom){
+        console.log(tabVille[nom].lat);
+        console.log(tabVille[nom].lon);
+        longitude = tabVille[nom].lon;
+        lagitude = tabVille[nom].lat
+      
+        map.setCenter({lat: lagitude, lng: longitude}); 
+      }
+    })
+  });
+
+   /* console.log(longitude);
+    console.log(lagitude);*/
 }
