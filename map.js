@@ -4,6 +4,9 @@ var tabNomVilles = [];
 
 var longitude;
 var lagitude;
+var position;
+
+var marker;
 
 $(document).ready(function(){
 
@@ -51,6 +54,13 @@ function initMap() {
     center: {lat: 45.5, lng: -73.550003},
     zoom: 8
   });
+
+position = {lat: 45.5, lng: -73.550003};
+  marker = new google.maps.Marker({
+    position: position,
+    map: map,
+    title: 'Hello World!'
+  });
 }
 
 function lookingIntoJSON(){
@@ -76,6 +86,7 @@ function settingLatLong(){
         lagitude = tabVille[nom].lat
       
         map.setCenter({lat: lagitude, lng: longitude}); 
+        marker.setPosition({lat: lagitude, lng: longitude});
       }
     })
   });
