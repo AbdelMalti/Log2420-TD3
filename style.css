@@ -20,9 +20,10 @@ body{
 
 #googleMap{
 	height: 500px;
-	width: 500px;
+	width: 100%;
 }
 
 .cacher(){
 	color: red;
 }
+

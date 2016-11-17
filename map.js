@@ -6,6 +6,7 @@ var longitude;
 var lagitude;
 
 var marker;
+var label;
 
 $(document).ready(function(){
 
@@ -56,8 +57,9 @@ function initMap() {
 
   marker = new google.maps.Marker({
     position: {lat: 45.5, lng: -73.550003},
+    labelContent : 'textVal',
     map: map,
-    title: 'Hello World!'
+    //title: 'Hello World!'
   });
 }
 
@@ -85,6 +87,7 @@ function settingLatLong(){
       
         map.setCenter({lat: lagitude, lng: longitude}); 
         marker.setPosition({lat: lagitude, lng: longitude});
+        marker.setLabel(nom);
       }
     })
   });
