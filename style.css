@@ -1,29 +1,61 @@
 body{
+	
+}
 
+.mainContainer{
+	
+}
+
+.blockcontainer{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+div img{
+	position: absolute;
+	width: 100%;
+	height:100%;
+	z-index: -1;
+	/*opacity: 0.5;*/
 }
 
 #inputBlock{
+	opacity: 10%;
+	top: 10px; 
+	left: 10px;
+	right: 10px;
+	bottom: 10px; 
+	 z-index: 10;
 
 }
 
 #inputNomVille{
-
+	/*width: 50%;
+    margin: 0 auto;*/
 }
 
 #français{
-
+	/* */
 }
 
 #english{
+	/*width: 50%;
+    margin: 0 auto; */
+	display: hide;
+}
+
+#affichageVille{
 	display: hide;
 }
 
 #googleMap{
-	height: 500px;
+	height: 100px;
 	width: 100%;
 }
 
-.cacher(){
+/*.cacher(){
 	color: red;
-}
+}*/
 

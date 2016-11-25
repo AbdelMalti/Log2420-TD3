@@ -25,12 +25,13 @@ $(document).ready(function(){
 	$( "#englishButton" ).click(cacherPartieFrancaise);
 
 	$( "#inputNomVille" ).autocomplete({
-		  source: tabNomVilles
+		  source: tabNomVilles,
+      select:function(e, data){
+        console.log(data.item.value);
+        $( "#inputNomVille" ).val(data.item.value);
+        settingLatLong();
+      }
 		});
-
-  $("#inputNomVille").on('change keyup paste', function() {
-    settingLatLong();
-  });
 });
 
 
@@ -57,15 +58,16 @@ function initMap() {
 
   marker = new google.maps.Marker({
     position: {lat: 45.5, lng: -73.550003},
-    labelContent : 'textVal',
     map: map,
     //title: 'Hello World!'
   });
+  map.setZoom(10);
 }
 
 function lookingIntoJSON(){
   $.getJSON("villes.json", function(data) {
     tabVille = data;
+    if(data[0] == $( "#inputNomVille" ).val()[0])
     $.map(data,function(villes, nom){
       tabNomVilles.push(nom);
     })
@@ -84,7 +86,6 @@ function settingLatLong(){
         console.log(tabVille[nom].lon);
         longitude = tabVille[nom].lon;
         lagitude = tabVille[nom].lat
-      
         map.setCenter({lat: lagitude, lng: longitude}); 
         marker.setPosition({lat: lagitude, lng: longitude});
         marker.setLabel(nom);
