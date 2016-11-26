@@ -18,13 +18,12 @@
 		<div class="mainContainer">
 			<!--div><img src="QuebecCity.jpg"></div-->
 			<div class="blockcontainer">
-
 				<!-- Debut block pour l'entrer utilisateur pour une ville -->
 				<div id="inputBlock">
 					<!-- Debut partie en francais -->
 					<div id="français">
 						<div class="btn-group">
-							<h1 id = "titlePage">Québec Map</h1>
+							<h1 id = "titlePage">Carte du Québec</h1>
 							<button id="boutonFrancais" class="btn btn-primary">Français</button>
 							<button id="boutonAnglais" class="btn btn-primary">Anglais</button>
 						</div>
@@ -46,12 +45,16 @@
 					</div>
 					<!-- Fin partie en anglais -->
 					<input id="inputNomVille"><br>
+
 				</div>
-				<br>
 				<!-- Fin block pour l'entrer utilisateur pour une ville -->
-				<div id="affichageVille"><p>hello</p></div>
-				</div>
-			<div>
+
+				<div id="affichageVille" class="col-sm-4">
+					<p id="villeFrancais">Ville choisie: </p>
+					<p id="villeAnglais">Town/City Chosen: </p>
+					<p id="nomVille">hello</p>
+				</div><br>
+			</div>
 			<!-- ************************************************** -->
 			<!--              Debut block pour la map               -->
 			<div id="googleMap"></div>
